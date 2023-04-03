@@ -1,24 +1,26 @@
 import { useState } from "react";
 import data from "./data";
-
+import List from "./List";
 const App = () => {
   const [mainData, setMainData] = useState(data);
   console.log(mainData);
   function clickHandler(){
     setMainData([]);
   }
-  return <div className="container">
-    <div>
-      <h2>5 Birthdays Today</h2>
-      {mainData.map((item) => {
+  return <main>
+    <div className="container">
+      <h3>{mainData.length} Birthdays Today</h3>
+      <List people = {mainData}/>
+
+      {/* {mainData.map((item) => {
         return <div>
         <img src={item.image} className="img"></img>
         <h1>{item.name}</h1>
         <h3>{item.age}</h3>
         </div>
-      })}
-      <button className=".btn" onClick={clickHandler}>Clear All</button>
+      })} */}
+      <button type = 'button' className="btn btn-block" onClick={clickHandler}>Clear All</button>
     </div>
-  </div>;
+  </main>
 };
 export default App;
